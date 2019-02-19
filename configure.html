@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>RogersCamView</title>
+
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="./style.css">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+
+    <h1>Configure</h1>
+
+        <div class="form-group">
+          <label for="refreshRate">Refresh (ms) - 1000 for LAN, 5000 for WAN, possibly higher for slower links.</label>
+          <input type="text" class="form-control" id="refreshRate" placeholder="" required>
+        </div>
+
+      <fieldset>
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"  onclick='document.getElementById("4cameras").style.visibility = "hidden"'>
+            <label class="form-check-label" for="gridRadios1">
+              One Camera
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4" checked onclick='document.getElementById("4cameras").style.visibility = "visible"'>
+            <label class="form-check-label" for="gridRadios4">
+              Four Cameras
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-group">
+      <label for="Camera1-ID">Camera1-URL</label>
+      <input type="text" class="form-control" id="Camera1-ID" placeholder="xxxxxxxxxxxxxx" required>
+    </div>
+    <div id="4cameras">
+      <label for="Camera2-ID">Camera2-URL</label>
+      <input type="text" class="form-control" id="Camera2-ID" placeholder="xxxxxxxxxxxxxx">
+      <label for="Camera3-ID">Camera3-URL</label>
+      <input type="text" class="form-control" id="Camera3-ID" placeholder="xxxxxxxxxxxxxx">
+      <label for="Camera4-ID">Camera4-URL</label>
+      <input type="text" class="form-control" id="Camera4-ID" placeholder="xxxxxxxxxxxxxx">
+    </div>
+
+
+    <div>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="buttonClicked()">Save Config + Launch</button>
+    </div>
+    </div>
+
+    <script>
+      'use strict'
+
+      window.$ = window.jQuery = require('jquery')
+      window.Bootstrap = require('bootstrap')
+
+      // In renderer process (web page).
+      const {ipcRenderer} = require('electron')
+
+      var myCameraURLs = JSON.parse(ipcRenderer.sendSync('getConfigData', 'getConfigData!'));
+
+      //deal with 1 camera, set config stuff
+      if(myCameraURLs.cameras.length < 2){
+        document.getElementById("4cameras").style.visibility = "hidden";
+        document.getElementById("gridRadios1").checked = true;
+      }
+      if(typeof myCameraURLs.refreshRate[0] === undefined){
+
+      } else {
+        document.getElementById('refreshRate').value = myCameraURLs.refreshRate[0];
+      }
+
+
+      if(typeof myCameraURLs.cameras[0] === undefined){
+
+      } else {
+        document.getElementById('Camera1-ID').value = myCameraURLs.cameras[0];
+      }
+
+      if(typeof myCameraURLs.cameras[1] === undefined){
+
+      } else {
+        document.getElementById('Camera2-ID').value = myCameraURLs.cameras[1];
+      }
+
+      if(typeof myCameraURLs.cameras[2] === undefined){
+
+      } else {
+        document.getElementById('Camera3-ID').value = myCameraURLs.cameras[2];
+      }
+
+      if(typeof myCameraURLs.cameras[3] === undefined){
+
+      } else {
+        document.getElementById('Camera4-ID').value = myCameraURLs.cameras[3];
+      }
+
+      function buttonClicked () {
+         myCameraURLs.cameras.length = 0;
+         myCameraURLs.refreshRate.length = 0;
+         myCameraURLs.refreshRate[0] = document.getElementById('refreshRate').value;
+         myCameraURLs.cameras[0] = document.getElementById('Camera1-ID').value;
+         if (document.getElementById('gridRadios4').checked == true) {
+         myCameraURLs.cameras[1] = document.getElementById('Camera2-ID').value;
+         myCameraURLs.cameras[2] = document.getElementById('Camera3-ID').value;
+         myCameraURLs.cameras[3] = document.getElementById('Camera4-ID').value;
+         }
+         console.log(ipcRenderer.sendSync('writeConfigData', JSON.stringify(myCameraURLs)));
+         window.close();
+      }
+
+
+      //save
+      // You can also require other files to run in this process
+      require('./renderer0.js')
+    </script>
+  </body>
+</html>

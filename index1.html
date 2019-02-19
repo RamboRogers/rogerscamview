@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>RogersCamView</title>
+
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+  </head>
+  <body>
+
+
+<img id="paneOneImg" class="img-fluid" src="XX" style="width:100%;height:100%">
+
+
+
+    <script>
+
+
+    window.onload = function()
+    {
+
+       var nodeOne = document.getElementById('paneOneImg')
+
+       refresh(nodeOne);
+
+       // you can refresh as many images you want just repeat above steps
+     }
+
+
+      // You can also require other files to run in this process
+      require('./renderer1.js')
+    </script>
+  </body>
+</html>
