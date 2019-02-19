@@ -10,12 +10,19 @@ This application is designed to pull a jpeg/png via API call from surveillance c
 
 ## To Use
 
-Run the application.
+1. Run the application.
+2. Set the URLs and refresh rate.
+
+![config](https://github.com/RamboRogers/rogerscamview/blob/master/images/config.png)
+
+3. View cameras
+
+![cameras](https://github.com/RamboRogers/rogerscamview/blob/master/images/cams.png)
 
 ## Trouble Shooting
 
 1. If for some reason it won't work. Delete the config file which is in your userData folder.
-2. Since this is built with electronjs and nodejs this will probably do more than jpegs or pngs. 
+2. Since this is built with electronjs and nodejs this will probably do more than jpegs or pngs.
 
 ## Thanks
 
