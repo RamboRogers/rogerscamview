@@ -2,6 +2,8 @@
 
 **A simple, fast, surveillance client.**
 
+### Tested On: Win64 / OSX Darwin (MAC) / Linux
+
 I wrote this because I have a monitor in my living room which I use to view my perimeter. I originally had an RTSP viewer which was decoding four h264 streams, it paused and crashed and the Intel Compute Stick running the viewer would overheat.
 
 I switched to a raspberry pi 3b+ and I have had the same problem.  Decoding 4 1080p h264 streams over wifi is CPU and network intensive.  The streams would pause for 3-5 seconds and it was just not great.
