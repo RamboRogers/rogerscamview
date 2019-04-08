@@ -17,12 +17,12 @@
   "author": "Matthew Rogers",
   "license": "GNU GPLv3",
   "devDependencies": {
-    "electron": "^4.0.3"
+    "electron": "^4.1.4"
   },
   "dependencies": {
-    "bootstrap": "^4.3.0",
+    "bootstrap": "^4.3.1",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.7",
+    "popper.js": "^1.15.0",
     "request": "^2.88.0"
   }
 }
