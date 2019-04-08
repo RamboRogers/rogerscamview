@@ -5,6 +5,8 @@ const fs = require('fs');
 
 //set config directory
 const configFileName = app.getPath("userData") + '/rogerscamconf.json';
+readConfigFile();
+
 //console.log("ConfigFile:" . configFileName);
 
 const blankConfig = '{"cameras":["http://127.0.0.1","http://127.0.0.1","http://127.0.0.1","http://127.0.0.1"],"refreshRate":["1000"]}';
@@ -39,7 +41,7 @@ function readConfigFile () {
       return console.error(err);
 
     } else {
-    //console.log("Asynchronous read: " + data.toString());
+    console.log("Asynchronous read: " + data.toString());
       global.configData = JSON.parse(data.toString())
 
     //console.log(global.configData.cameras.length);
@@ -122,9 +124,6 @@ function create1Window () {
 
 let configWindow
 function createConfigWindow () {
-
-  readConfigFile()
-
 
   // Create the browser window.
   configWindow = new BrowserWindow({width:1000, height: 600, center: true })
