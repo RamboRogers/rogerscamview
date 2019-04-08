@@ -26,6 +26,17 @@ This application is designed to pull a jpeg/png via API call from surveillance c
 1. If for some reason it won't work. Delete the config file which is in your userData folder.
 2. Since this is built with electronjs and nodejs this will probably do more than jpegs or pngs.
 
+## Generate the URLs
+Here I will spell out how to do this on a UBNT DVR system.
+
+1. Login to your DVR Systems HTTP interface.
+2. Click on a camera and view the RTSP service to find the Camera ID and remove the _1 off the end. `rtsp://192.168.1.6:7447/5b8c2a92c2dc8705915ed88f_1`
+_CAMERAID:_ **5b8c2a92c2dc8705915ed88f**
+3. Click users in the DVR, then your account, then API access, enable API access and copy your key.
+4. Use those two strings and shape them into this example to get the JPG stream.
+`http://192.168.1.6:7080/api/2.0/snapshot/camera/CAMERAID?force=true&apiKey=YOURAPIKEY`
+5. Fin.
+
 ## Thanks
 
 - [matt@matthewrogers.org]
