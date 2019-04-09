@@ -30,9 +30,15 @@
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4" checked onclick='document.getElementById("4cameras").style.visibility = "visible"'>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4" onclick='document.getElementById("4cameras").style.visibility = "visible";document.getElementById("9cameras").style.visibility = "hidden"'>
             <label class="form-check-label" for="gridRadios4">
               Four Cameras
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios9" value="option9" checked onclick='document.getElementById("4cameras").style.visibility = "visible";document.getElementById("9cameras").style.visibility = "visible"'>
+            <label class="form-check-label" for="gridRadios9">
+              Nine Cameras
             </label>
           </div>
         </div>
@@ -51,7 +57,18 @@
       <label for="Camera4-ID">Camera4-URL</label>
       <input type="text" class="form-control" id="Camera4-ID" placeholder="xxxxxxxxxxxxxx">
     </div>
-
+    <div id="9cameras">
+      <label for="Camera5-ID">Camera5-URL</label>
+      <input type="text" class="form-control" id="Camera5-ID" placeholder="xxxxxxxxxxxxxx">
+      <label for="Camera6-ID">Camera6-URL</label>
+      <input type="text" class="form-control" id="Camera6-ID" placeholder="xxxxxxxxxxxxxx">
+      <label for="Camera7-ID">Camera7-URL</label>
+      <input type="text" class="form-control" id="Camera7-ID" placeholder="xxxxxxxxxxxxxx">
+      <label for="Camera8-ID">Camera8-URL</label>
+      <input type="text" class="form-control" id="Camera8-ID" placeholder="xxxxxxxxxxxxxx">
+      <label for="Camera9-ID">Camera9-URL</label>
+      <input type="text" class="form-control" id="Camera9-ID" placeholder="xxxxxxxxxxxxxx">
+    </div>
 
     <div>
     <button type="button" class="btn btn-primary btn-lg btn-block" onclick="buttonClicked()">Save Config + Launch</button>
@@ -72,8 +89,21 @@
       //deal with 1 camera, set config stuff
       if(myCameraURLs.cameras.length < 2){
         document.getElementById("4cameras").style.visibility = "hidden";
+        document.getElementById("9cameras").style.visibility = "hidden";
         document.getElementById("gridRadios1").checked = true;
       }
+      //4 cameras...
+      if(myCameraURLs.cameras.length == 4){
+        document.getElementById("9cameras").style.visibility = "hidden";
+        document.getElementById("gridRadios4").checked = true;
+      }    
+
+      //9 cameras...
+      if(myCameraURLs.cameras.length > 4){
+        document.getElementById("9cameras").style.visibility = "visible";
+        document.getElementById("gridRadios9").checked = true;
+      }  
+
       if(typeof myCameraURLs.refreshRate[0] === undefined){
 
       } else {
@@ -105,15 +135,57 @@
         document.getElementById('Camera4-ID').value = myCameraURLs.cameras[3];
       }
 
+      if(typeof myCameraURLs.cameras[4] === undefined){
+
+      } else {
+        document.getElementById('Camera5-ID').value = myCameraURLs.cameras[4];
+      }
+
+      if(typeof myCameraURLs.cameras[5] === undefined){
+
+      } else {
+        document.getElementById('Camera6-ID').value = myCameraURLs.cameras[5];
+      }
+
+      if(typeof myCameraURLs.cameras[6] === undefined){
+
+      } else {
+        document.getElementById('Camera7-ID').value = myCameraURLs.cameras[6];
+      }
+
+      if(typeof myCameraURLs.cameras[7] === undefined){
+
+      } else {
+        document.getElementById('Camera8-ID').value = myCameraURLs.cameras[7];
+      }
+
+      if(typeof myCameraURLs.cameras[8] === undefined){
+
+      } else {
+        document.getElementById('Camera9-ID').value = myCameraURLs.cameras[8];
+      }
+
       function buttonClicked () {
          myCameraURLs.cameras.length = 0;
          myCameraURLs.refreshRate.length = 0;
          myCameraURLs.refreshRate[0] = document.getElementById('refreshRate').value;
          myCameraURLs.cameras[0] = document.getElementById('Camera1-ID').value;
+
          if (document.getElementById('gridRadios4').checked == true) {
          myCameraURLs.cameras[1] = document.getElementById('Camera2-ID').value;
          myCameraURLs.cameras[2] = document.getElementById('Camera3-ID').value;
          myCameraURLs.cameras[3] = document.getElementById('Camera4-ID').value;
+         }
+
+         if (document.getElementById('gridRadios9').checked == true) {
+         myCameraURLs.cameras[1] = document.getElementById('Camera2-ID').value;
+         myCameraURLs.cameras[2] = document.getElementById('Camera3-ID').value;
+         myCameraURLs.cameras[3] = document.getElementById('Camera4-ID').value;
+         myCameraURLs.cameras[4] = document.getElementById('Camera5-ID').value;
+         myCameraURLs.cameras[5] = document.getElementById('Camera6-ID').value;
+         myCameraURLs.cameras[6] = document.getElementById('Camera7-ID').value;
+         myCameraURLs.cameras[7] = document.getElementById('Camera8-ID').value;
+         myCameraURLs.cameras[8] = document.getElementById('Camera9-ID').value;
          }
          console.log(ipcRenderer.sendSync('writeConfigData', JSON.stringify(myCameraURLs)));
          window.close();

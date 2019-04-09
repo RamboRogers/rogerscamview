@@ -57,12 +57,15 @@ function writeConfigFile () {
     }
     //console.log(data);
   });
- try { readConfigFile ()
+ //CODE TO UPDATE FOR 9 CAMERAS
+  try { readConfigFile()
  } finally {
-   if (global.configData.cameras.length > 1){
+   if (global.configData.cameras.length == 4){
     createWindow()
-  } else {
-    create1Window()
+  } else if (global.configData.cameras.length > 4) {
+    create9Window()
+} else {
+  create1Window()
 }
 }
 }
@@ -122,11 +125,32 @@ function create1Window () {
 }
 
 
+let main9Window
+function create9Window () {
+  // Create the browser window.
+  main9Window = new BrowserWindow({width: 800, height: 600, center: true })
+
+  // and load the index.html of the app.
+  main9Window.loadFile('9cams.html')
+  main9Window.maximize();
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools()
+
+  // Emitted when the window is closed.
+  main9Window.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    main9Window = null
+  })
+}
+
+
 let configWindow
 function createConfigWindow () {
 
   // Create the browser window.
-  configWindow = new BrowserWindow({width:1000, height: 600, center: true })
+  configWindow = new BrowserWindow({width:1000, height: 950, center: true })
 
   // and load the index.html of the app.
   configWindow.loadFile('configure.html')
