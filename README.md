@@ -10,6 +10,14 @@ I switched to a raspberry pi 3b+ and I have had the same problem.  Decoding 4 10
 
 This application is designed to pull a jpeg/png via API call from surveillance cams or DVR systems. Using a one second update time, it completely solved all my problems and is far more responsive to my previous solutions.
 
+### Raspberry PI 
+1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/v1.1.1/RogersCamView-linux-arm-RaspberryPI.7z]
+2. Extract using p7zip, you might need to apk install p7zip. 
+  `7zr e RogersCamView-linux-arm-RaspberryPI.7z`
+3. Then `chmod +x RogersCamView` to make it executable.
+4. Then execute or click on it `./RogersCamView`
+>NOTE: The raspberry PI needs to use electron version 3.0.13, if you want to build from source you need to adjust the package.json for this.
+
 ## To Use
 
 1. Run the application.
