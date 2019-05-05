@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="./style.css">
 
   </head>
-  <body>
+  <body style="overflow-y: scroll;">
 
     <div class="container-fluid">
 
     <h1>Configure</h1>
-
+      <div id="counter" class="text-success"></div>
         <div class="form-group">
           <label for="refreshRate">Refresh (ms) - 1000 for LAN, 5000 for WAN, possibly higher for slower links.</label>
           <input type="text" class="form-control" id="refreshRate" placeholder="" required>
@@ -21,10 +21,10 @@
 
       <fieldset>
       <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+        <legend class="col-form-label col-sm-2 pt-0">Camera Count</legend>
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"  onclick='document.getElementById("4cameras").style.visibility = "hidden"'>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"  onclick='document.getElementById("4cameras").style.visibility = "hidden";document.getElementById("9cameras").style.visibility = "hidden"'>
             <label class="form-check-label" for="gridRadios1">
               One Camera
             </label>
@@ -44,39 +44,46 @@
         </div>
       </div>
     </fieldset>
+    <div>
+      <button type="button" class="btn btn-primary btn-lg btn-block" onclick="buttonClicked()" id="goButton">Save Config + Launch</button>
+    </div>
 
     <div class="form-group">
       <label for="Camera1-ID">Camera1-URL</label>
-      <input type="text" class="form-control" id="Camera1-ID" placeholder="xxxxxxxxxxxxxx" required>
+      <input type="text" class="form-control" id="Camera1-ID" placeholder="xxxxxxxxxxxxxx" required><br>
     </div>
     <div id="4cameras">
       <label for="Camera2-ID">Camera2-URL</label>
-      <input type="text" class="form-control" id="Camera2-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera2-ID" placeholder="xxxxxxxxxxxxxx"><br>
       <label for="Camera3-ID">Camera3-URL</label>
-      <input type="text" class="form-control" id="Camera3-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera3-ID" placeholder="xxxxxxxxxxxxxx"><br>
       <label for="Camera4-ID">Camera4-URL</label>
-      <input type="text" class="form-control" id="Camera4-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera4-ID" placeholder="xxxxxxxxxxxxxx"><br>
     </div>
     <div id="9cameras">
       <label for="Camera5-ID">Camera5-URL</label>
-      <input type="text" class="form-control" id="Camera5-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera5-ID" placeholder="xxxxxxxxxxxxxx"><br>
       <label for="Camera6-ID">Camera6-URL</label>
-      <input type="text" class="form-control" id="Camera6-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera6-ID" placeholder="xxxxxxxxxxxxxx"><br>
       <label for="Camera7-ID">Camera7-URL</label>
-      <input type="text" class="form-control" id="Camera7-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera7-ID" placeholder="xxxxxxxxxxxxxx"><br>
       <label for="Camera8-ID">Camera8-URL</label>
-      <input type="text" class="form-control" id="Camera8-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera8-ID" placeholder="xxxxxxxxxxxxxx"><br>
       <label for="Camera9-ID">Camera9-URL</label>
-      <input type="text" class="form-control" id="Camera9-ID" placeholder="xxxxxxxxxxxxxx">
+      <input type="text" class="form-control" id="Camera9-ID" placeholder="xxxxxxxxxxxxxx"><br>
     </div>
 
-    <div>
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="buttonClicked()">Save Config + Launch</button>
-    </div>
+    
     </div>
 
     <script>
       'use strict'
+
+      //add countdown timer to self launch after X seconds
+      var countDown=120;
+      setInterval(function(){ document.getElementById("goButton").click() }, countDown*1000);
+      setInterval(function(){ document.getElementById("counter").textContent="Autostart: " + countDown; }, 100);
+      setInterval(function(){ countDown=countDown-1; }, 1000);
 
       window.$ = window.jQuery = require('jquery')
       window.Bootstrap = require('bootstrap')

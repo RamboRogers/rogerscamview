@@ -1,6 +1,6 @@
 {
   "name": "RogersCamView",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A UBNT Camera Viewing Application",
   "main": "main.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
     "request": "^2.88.0"
   }
