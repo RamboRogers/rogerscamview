@@ -1,6 +1,6 @@
 # RogersCamView
 
-**A simple, fast, surveillance client.**
+**A simple, fast, surveillance client (RTSP/JPG/PNG).**
 
 ### Tested On: Win64 / OSX Darwin (MAC) / Linux
 
@@ -9,6 +9,8 @@ I wrote this because I have a monitor in my living room which I use to view my p
 I switched to a raspberry pi 3b+ and I have had the same problem.  Decoding 4 1080p h264 streams over wifi is CPU and network intensive.  The streams would pause for 3-5 seconds and it was just not great.
 
 This application is designed to pull a jpeg/png via API call from surveillance cams or DVR systems. Using a one second update time, it completely solved all my problems and is far more responsive to my previous solutions.
+
+This can also pull from RTSP streams on Wyze cameras per the API documentation.
 
 ### Raspberry PI 
 1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/v1.1.1/RogersCamView-linux-arm-RaspberryPI.7z]
