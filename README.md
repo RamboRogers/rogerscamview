@@ -2,7 +2,7 @@
 
 **A simple, fast, surveillance client (RTSP/JPG/PNG).**
 
-### Tested On: Win64 / OSX Darwin (MAC) / Linux
+### Tested On: Win64 / OSX Darwin (MAC) / Linux / RaspberryPI
 
 I wrote this because I have a monitor in my living room which I use to view my perimeter. I originally had an RTSP viewer which was decoding four h264 streams, it paused and crashed and the Intel Compute Stick running the viewer would overheat.
 
@@ -13,7 +13,7 @@ This application is designed to pull a jpeg/png via API call from surveillance c
 This can also pull from RTSP streams on Wyze cameras per the API documentation.
 
 ### Raspberry PI 
-1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/v1.1.1/RogersCamView-linux-arm-RaspberryPI.7z]
+1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/v1.2.0/RogersCamView-linux-arm-RaspberryPI.7z]
 2. Extract using p7zip, you might need to apk install p7zip. 
   `7zr e RogersCamView-linux-arm-RaspberryPI.7z`
 3. Then `chmod +x RogersCamView` to make it executable.
