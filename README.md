@@ -8,9 +8,8 @@ I wrote this because I have a monitor in my living room which I use to view my p
 
 I switched to a raspberry pi 3b+ and I have had the same problem.  Decoding 4 1080p h264 streams over wifi is CPU and network intensive.  The streams would pause for 3-5 seconds and it was just not great.
 
-This application is designed to pull a jpeg/png via API call from surveillance cams or DVR systems. Using a one second update time, it completely solved all my problems and is far more responsive to my previous solutions.
+This application is designed to pull a jpeg/png via API call from surveillance cams directly or DVR systems. Using a one second update time, it completely solved all my problems and is far more responsive to my previous solutions.
 
-This can also pull from RTSP streams on Wyze cameras per the API documentation.
 
 ### Raspberry PI 
 1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/v1.2.0/RogersCamView-linux-arm-RaspberryPI.7z]
@@ -35,6 +34,12 @@ This can also pull from RTSP streams on Wyze cameras per the API documentation.
 
 1. If for some reason it won't work. Delete the config file which is in your userData folder.
 2. Since this is built with electronjs and nodejs this will probably do more than jpegs or pngs.
+
+## Use Anonymous Snaps
+
+Since Ubiquiti enabled anonymous snaps on the cameras it makes it much easier to set this up.  Keep in mind if your camera ips are changing that they should be set to static or you should use a dhcp reservation to stop the shifting.
+
+Use your cameras IP like this `http://192.168.1.3/snap.jpeg` and you should see a snap in your browser.  Use these URLs to populate the URLs for this system.
 
 ## Generate the URLs
 Here I will spell out how to do this on a UBNT DVR system.
