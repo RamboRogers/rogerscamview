@@ -41,7 +41,7 @@ Since Ubiquiti enabled anonymous snaps on the cameras it makes it much easier to
 
 Use your cameras IP like this `http://192.168.1.3/snap.jpeg` and you should see a snap in your browser.  Use these URLs to populate the URLs for this system.
 
-## Generate the URLs
+## Generate the URLs from your UBNT DVR
 Here I will spell out how to do this on a UBNT DVR system.
 
 1. Login to your DVR Systems HTTP interface.
