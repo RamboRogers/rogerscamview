@@ -1,6 +1,6 @@
 # RogersCamView
 
-**A simple, fast, surveillance client (Ubiquit UBNT Cameras).**
+**A simple, fast, surveillance client (Ubiquiti UBNT Cameras).**
 
 ### Tested On: Win64 / OSX Darwin (MAC) / Linux / RaspberryPI
 
@@ -12,9 +12,9 @@ This application is designed to pull a jpeg/png via API call from UBNT surveilla
 
 
 ### Raspberry PI 
-1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/v1.2.0/RogersCamView-linux-arm-RaspberryPI.7z]
-2. Extract using p7zip, you might need to apk install p7zip. 
-  `7zr e RogersCamView-linux-arm-RaspberryPI.7z`
+1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/1.3/RogersCamView-linux-arm-RaspberryPI.zip]
+2. Extract using unzip, you might need to apk install p7zip. 
+  `unzip RogersCamView-linux-arm-RaspberryPI.7z`
 3. Then `chmod +x RogersCamView` to make it executable.
 4. Then execute or click on it `./RogersCamView`
 >NOTE: The raspberry PI needs to use electron version 3.0.13, if you want to build from source you need to adjust the package.json for this.
