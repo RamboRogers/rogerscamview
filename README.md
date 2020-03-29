@@ -13,7 +13,7 @@ This application is designed to pull a jpeg/png via API call from UBNT surveilla
 
 ### Raspberry PI 
 1. Download the prebuilt release [https://github.com/RamboRogers/rogerscamview/releases/download/1.3/RogersCamView-linux-arm-RaspberryPI.zip]
-2. Extract using unzip, you might need to apk install p7zip. 
+2. Extract using unzip.  
   `unzip RogersCamView-linux-arm-RaspberryPI.7z`
 3. Then `chmod +x RogersCamView` to make it executable.
 4. Then execute or click on it `./RogersCamView`
