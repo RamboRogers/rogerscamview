@@ -16,11 +16,13 @@ function refresh(node)
    (function startRefresh()
    {
       var address;
-      if(node.src.indexOf('&cb=')>-1)
-       address = node.src.split('&cb=')[0];
+      
+      if(node.src.indexOf('?cb=')>-1)
+       address = node.src.split('?cb=')[0];
       else
        address = node.src;
-      node.src = address+"&cb="+new Date().getTime();
+       node.src = address+"?cb="+new Date().getTime();
+      
 
       node.src.reload
       setTimeout(startRefresh,times);

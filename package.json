@@ -4,7 +4,7 @@
   "description": "A UBNT Camera Viewing Application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron . --disable-http-cache"
   },
   "repository": "@ramborogers",
   "keywords": [
