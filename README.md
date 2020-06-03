@@ -24,11 +24,11 @@ This application is designed to pull a jpeg/png via API call from UBNT surveilla
 1. Run the application.
 2. Set the URLs and refresh rate.
 
-![config](https://github.com/RamboRogers/rogerscamview/blob/master/images/config.png)
+![config](images/config.png)
 
 3. View cameras
 
-![cameras](https://github.com/RamboRogers/rogerscamview/blob/master/images/cams.png)
+![cameras](images/cams.png)
 
 ## Trouble Shooting
 
